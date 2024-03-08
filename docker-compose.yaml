@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  tandem:
+    image: cipherstash/tandem-pgcat
+    environment:
+      LOG_LEVEL: debug
+      CS_PASSTHROUGH: false
+
+      # tandem connection options
+      CS_PORT: 6432
+      CS_USERNAME: postgres
+      CS_PASSWORD: password
+
+      # connect to host's localhost PostgreSQL
+      CS_DATABASE__HOST: host.docker.internal
+      CS_DATABASE__PORT: YOUR_DATABASE_PORT
+      CS_DATABASE__NAME: YOUR_DATABASE_NAME
+      CS_DATABASE__USERNAME: YOUR_DATABASE_USERNAME
+      CS_DATABASE__PASSWORD: YOUR_DATABASE_PASSWORD
+
+      # setup using stash-cli
+      CS_WORKSPACE_ID: YOUR_CIPHERSTASH_WORKSPACE_ID
+      CS_CLIENT_ID: YOUR_CIPHERSTASH_CLIENT_ID
+      CS_CLIENT_KEY: YOUR_CIPHERSTASH_KEY
+      CS_CLIENT_ACCESS_KEY: YOUR_CIPHERSTASH_ACCESS_KEY
+    ports:
+      - 6432:6432
