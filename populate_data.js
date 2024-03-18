@@ -59,13 +59,8 @@ async function populateData() {
   }
 }
 
-populateData()
-  .then(() => {
-    console.log("Data population completed.");
-  })
-  .catch((error) => {
-    console.error("Error populating data:", error);
-    sequelize.close(); // Close the database connection in case of an error
-  });
+populateData().then(() => {
+  console.log("Data population completed.");
+});
 
 module.exports = { populateData }; // Export the function for potential reuse
